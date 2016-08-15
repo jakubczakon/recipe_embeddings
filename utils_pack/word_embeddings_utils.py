@@ -187,7 +187,9 @@ class NearestFood(NearestNeighbors):
         if mode =="dict":
             search_vector = self.recipe_vectors_dict[recipe_title].reshape(1, -1)
         elif mode =="index":
-            print 
+            print self.ind_dict[recipe_title]
+            for ingredients in self.dataset_dict[self.ind_dict[recipe_title]]['ingredient']:
+                print "   -%s"%" ".join(ingredients)
             search_vector = self.recipe_vectors_dict[self.ind_dict[recipe_title]].reshape(1, -1)
         else:
             return Exception("Choose dict or index")
